@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const port = 3000;
+require('dotenv').config();
 
 const app = express();
 
@@ -14,9 +15,6 @@ app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })
 
-require('dotenv').config({
-    path: "./config.env"
-});
 
 const mongoString = process.env.DATABASE_URL
 
