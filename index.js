@@ -7,8 +7,7 @@ const app = express();
 
 app.use(express.json());
 
-const DATABASE_URL="mongodb+srv://revu:vandy2024@cluster0.6i7imii.mongodb.net/revu"
-const mongoString = DATABASE_URL//process.env.DATABASE_URL
+const mongoString = process.env.DATABASE_URL
 
 mongoose.connect(mongoString);
 const database = mongoose.connection
