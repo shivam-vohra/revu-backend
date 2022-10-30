@@ -152,9 +152,9 @@ router.delete('/delete/delComment', async (req, res) => {
  */
 router.post('/post/newComplaint', async (req, res) => {
     const data = new ComplaintModel({
-        userId: req.body.userId,
         contact: req.body.contact,
         content: req.body.content,
+        urgency: req.body.urgency,
         timestamp: Date.now(),
     });
 
