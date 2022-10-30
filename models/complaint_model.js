@@ -1,9 +1,13 @@
 const mongoose = require('mongoose');
 
 const dataSchema = new mongoose.Schema({
+    diningHall: {
+        required: true,
+        type: String
+    },
     urgency: {
         required: true,
-        type: Number,
+        type: Number
     },
     contact: {
         required: true,
