@@ -112,7 +112,7 @@ router.post('/post/createComment', async (req, res) => {
 router.get('/getAll/diningComments/:diningHall', async (req, res) => {
     try{
         const data = await CommentModel
-            .find({diningHall: req.params.diningHall});
+            .find({diningHallId: req.params.diningHallId});
         res.json(data)
     }
     catch(error){
