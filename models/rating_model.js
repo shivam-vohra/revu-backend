@@ -19,4 +19,4 @@ const dataSchema = new mongoose.Schema({
     },
 });
 
-module.exports = mongoose.model('ratingdatas', dataSchema)
+module.exports = mongoose.model('ratings', dataSchema)

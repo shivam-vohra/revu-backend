@@ -42,7 +42,7 @@ router.get('/getAll/userRatings/:userId', async (req, res) => {
 router.get('/getAll/foodRatings/:diningHall', async (req, res) => {
     try{
         const data = await RatingModel
-            .find({diningHall: req.params.diningHall})
+            .find({diningHallId: req.params.diningHallId})
             .and([{type: 'food'}]);
         res.json(data)
     }
@@ -54,7 +54,7 @@ router.get('/getAll/foodRatings/:diningHall', async (req, res) => {
 router.get('/getAll/trafficRatings/:diningHall', async (req, res) => {
     try {
         const data = await RatingModel
-            .find({diningHall: req.params.diningHall})
+            .find({diningHallId: req.params.diningHallId})
             .and([{type: 'traffic'}]);
         res.json(data)
     }
@@ -65,12 +65,13 @@ router.get('/getAll/trafficRatings/:diningHall', async (req, res) => {
 
 router.patch('/patch/updateRating', async (req, res) => {
     try {
-        const result = await RatingModel
-            .find(req.params.userId)
-            .findByIdAndUpdate(req.params.ratingId,
-                               req.params.rating,
-                               {new: true});
-        res.send(result);
+        const filter = structuredClone(req.body);
+        delete filter['rating'];
+        console.log(filter, req.body);
+        const targetRating = await RatingModel.findOneAndUpdate(filter, { 
+            rating: req.body.rating
+        });
+        res.send(targetRating);
     }
     catch (error) {
         res.status(500).json({ message: error.message })
