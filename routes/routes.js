@@ -109,10 +109,9 @@ router.post('/post/createComment', async (req, res) => {
     }
 });
 
-router.get('/getAll/diningComments/:diningHall', async (req, res) => {
+router.get('/getAll/diningComments/:diningHallId', async (req, res) => {
     try{
-        const data = await CommentModel
-            .find({diningHallId: req.params.diningHallId});
+        const data = await CommentModel.find({diningHallId: req.params.diningHallId});
         res.json(data)
     }
     catch(error){
