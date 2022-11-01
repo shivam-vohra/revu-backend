@@ -5,9 +5,9 @@ const dataSchema = new mongoose.Schema({
         required: true,
         type: Number,
     },
-    diningHall: {
+    diningHallId: {
         required: true,
-        type: String
+        type: Number
     },
     type: {
         required: true,
@@ -19,4 +19,4 @@ const dataSchema = new mongoose.Schema({
     },
 });
 
-module.exports = mongoose.model('RatingData', dataSchema)
+module.exports = mongoose.model('ratingdatas', dataSchema)
