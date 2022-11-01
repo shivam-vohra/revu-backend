@@ -95,7 +95,7 @@ router.delete('/delete/allRatings', async (req, res) => {
 router.post('/post/createComment', async (req, res) => {
     const data = new CommentModel({
         userId: req.body.userId,
-        diningHall: req.body.diningHall,
+        diningHallId: req.body.diningHallId,
         content: req.body.content,
         timestamp: Date.now()
     });
