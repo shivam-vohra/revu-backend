@@ -14,7 +14,7 @@ module.exports = router;
 router.post('/post/newRating', async (req, res) => {
     const data = new RatingModel({
         userId: req.body.userId,
-        diningHall: req.body.diningHall,
+        diningHallId: req.body.diningHallId,
         type: req.body.type,
         rating: req.body.rating
     });
