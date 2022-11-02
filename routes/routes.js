@@ -209,7 +209,9 @@ async function getRatingHelper(req) {
         finTraffic /= numTraffic;
     }
 
-    data = {finFood, finTraffic};
+    const numRatings = numFood + numTraffic;
+
+    data = {finFood, finTraffic, numRatings};
     return data;
 }
 
