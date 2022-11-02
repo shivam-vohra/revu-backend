@@ -215,6 +215,7 @@ async function getRatingHelper(req) {
 
 router.get('/getAll/ratings/:diningHall', async (req, res) => {
     try {
+        console.log(req.params);
         const data = await getRatingHelper(req);
         res.json(data)
     } catch(error){
