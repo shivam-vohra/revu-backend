@@ -185,7 +185,7 @@ router.get('/getAll/complaints', async (req, res) => {
 
 async function getRatingHelper(req) {
     const foodData = await RatingModel
-        .find({diningHall: req.params.diningHall});
+        .find({diningHallId: req.params.diningHallId});
 
     finFood = 0.0;
     finTraffic = 0.0
