@@ -213,9 +213,8 @@ async function getRatingHelper(req) {
     return data;
 }
 
-router.get('/getAll/ratings/:diningHall', async (req, res) => {
+router.get('/getAll/ratings/:diningHallId', async (req, res) => {
     try {
-        console.log(req.params);
         const data = await getRatingHelper(req);
         res.json(data)
     } catch(error){
