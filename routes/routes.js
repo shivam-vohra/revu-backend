@@ -39,7 +39,7 @@ router.get('/getAll/userRatings/:userId', async (req, res) => {
     }
 });
 
-router.get('/getAll/foodRatings/:diningHallId', async (req, res) => {
+router.get('/getAll/foodRatings/:diningHall', async (req, res) => {
     try{
         const data = await RatingModel
             .find({diningHallId: req.params.diningHallId})
@@ -51,7 +51,7 @@ router.get('/getAll/foodRatings/:diningHallId', async (req, res) => {
     }
 });
 
-router.get('/getAll/trafficRatings/:diningHallId', async (req, res) => {
+router.get('/getAll/trafficRatings/:diningHall', async (req, res) => {
     try {
         const data = await RatingModel
             .find({diningHallId: req.params.diningHallId})
@@ -62,7 +62,6 @@ router.get('/getAll/trafficRatings/:diningHallId', async (req, res) => {
         res.status(500).json({message: error.message});
     }
 });
-
 
 router.patch('/patch/updateRating', async (req, res) => {
     try {
