@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const dataSchema = new mongoose.Schema({
     userId: {
         required: true,
-        type: String
+        type: Integer
     },
     diningHallId: {
         requied: true,
