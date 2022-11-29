@@ -93,6 +93,17 @@ router.delete('/delete/allRatings', async (req, res) => {
 /**
  * COMMENTS
 */
+router.get('/get/commentsById/:userId', async (req, res) => {
+    try{
+        const data = await CommentModel
+            .find({userId: req.params.userId});
+        res.json(data)
+    }
+    catch(error){
+        res.status(500).json({message: error.message})
+    }
+});
+
 router.post('/post/createComment', async (req, res) => {
     const data = new CommentModel({
         userId: req.body.userId,
@@ -150,6 +161,17 @@ router.delete('/delete/delComment', async (req, res) => {
 /**
  * COMPLAINTS
  */
+ router.get('/get/complaintsById/:userId', async (req, res) => {
+    try{
+        const data = await ComplaintModel
+            .find({userId: req.params.userId});
+        res.json(data)
+    }
+    catch(error){
+        res.status(500).json({message: error.message})
+    }
+});
+
 router.post('/post/newComplaint', async (req, res) => {
     const data = new ComplaintModel({
         diningHall: req.body.diningHall,
